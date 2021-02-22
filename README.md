@@ -234,17 +234,19 @@ On peut accéder aux valeurs du DataFrame via des indices ou plages d'indice. La
 Il y a différentes manières de le faire, l'utilisation de `.iloc[slice_ligne,slice_colonne]` constitue une des solutions les plus simples. N'oublions pas que shape permet d'obtenir les dimensions (lignes et colonnes) du DataFrame.
 ###### Acceder aux cinq premières lignes de toutes les colonnes
 ```python
+df.iloc[0:5,]
 
 ```
 
 ###### Acceder à toutes les lignes de la dernière colonne
 ```python
-
+df.iloc[:,6:7]
 ```
 
 ###### Acceder aux cinq premières lignes des colonnes 0, 2 et 3
 ```python
-
+df.iloc[0:5,[0,2,3]]
+ou df.iloc[[0,1,2,3,4],[0,2,3]]
 ```
 
 ##### Conversion de type
@@ -254,7 +256,7 @@ Le type des valeurs d'une colonne peut être spécifiée:
 * à la lecture
 
 ```python
-pandas.read_csv('data/TCL_wt1.tsv', sep="\t",  dtype = {'Accession': str, 'Description': str, 'Gene Symbol': str, 
+pandas.read_csv('data/TCL_wt1.tsv',na_values='#VALEUR!', sep="\t",  dtype = {'Accession': str, 'Description': str, 'Gene Symbol': str, 
                                                  'Corrected Abundance ratio (1.53)': np.float,  'Log2 Corrected Abundance Ratio': np.float, 
                                                  'Abundance Ratio Adj. P-Value: (127. T3 Tc WT) / (126. T0 WT)': np.float, '-LOG10 Adj.P-val': np.float})
 ```
@@ -262,7 +264,7 @@ pandas.read_csv('data/TCL_wt1.tsv', sep="\t",  dtype = {'Accession': str, 'Descr
 * modifiée à la volée
 
 ```python
-df = df.astype({'Log2 Corrected Abundance Ratio': float, '-LOG10 Adj.P-val': float } )
+df = df.dropna().astype({'Log2 Corrected Abundance Ratio': float, '-LOG10 Adj.P-val': float } )
 ```
 
 ##### Selection avec contraintes
