@@ -297,12 +297,28 @@ df2.shape ( pour voir si on a bien enlevé les lignes avec des NA )
 ##### 2. Representez par un histogramme les valeurs de `Log2 Corrected Abundance Ratio`
 
 ```
-
+%matplotlib nbagg
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import norm
+df = pandas.read_csv("./data/TCL_wt1.tsv", sep = "\t", header = 'infer' )
+df =df.dropna()
+df = df.astype({'Log2 Corrected Abundance Ratio': float, '-LOG10 Adj.P-val': float } )
+fig, ax = plt.subplots()
+ax.hist(df['Log2 Corrected Abundance Ratio'], bins=100)
+ax.set_xlabel('Log2 Corrected Abundance Ratio')
+ax.set_ylabel('protein count')
+fig.show()
+print(df['Log2 Corrected Abundance Ratio'])
 ```
 
 ##### 3. A partir de cette échantillon de ratio d'abondance,  estimez la moyenne <img src="https://render.githubusercontent.com/render/math?math=\mu"> et l'ecart-type <img src="https://render.githubusercontent.com/render/math?math=\sigma"> d'une loi normale.
 ```
-
+import numpy
+Log = df["Log2 Corrected Abundance Ratio"]
+mu = np.mean(Log)
+s=np.std(Log)
+print(mu, s)
 
 ```
 
@@ -310,11 +326,14 @@ df2.shape ( pour voir si on a bien enlevé les lignes avec des NA )
 
 
 ```python
-hist = ax.hist(_, bins=100) # draw histogram
-x = np.linspace(min(_), max(_), 100) # generate PDF domain points
+fig, ax = plt.subplots()
+hist = ax.hist(Log, bins=100) # draw histogram
+x = np.linspace(min(Log), max(Log), 100) # generate PDF domain points
 dx = hist[1][1] - hist[1][0] # Get single value bar height
-scale = len(_)*dx # scale accordingly
-ax.plot(x, norm.pdf(x, mu, sqrt(S_2))*scale) # compute theoritical PDF and draw it
+scale = len(Log)*dx # scale accordingly
+ax.plot(x, norm.pdf(x, mu, s**2)*scale) # compute theoritical PDF and draw it
+fig.show()
+
 ```
 
 ![Histogramme à inserez ici](histogram_log2FC.png "Title")
