@@ -165,40 +165,62 @@ df = pandas.read_csv()
 
 Quel est le type de l'objet `df`?
 ```
-
+<class 'pandas.core.frame.DataFrame'>
+data frame pandas
 ```
 
 ##### Descriptions d'une table de données
 Que permettent les méthodes suivantes?
 ###### df.shape
 ```
+Return a tuple representing the dimensionality of the DataFrame.
 ```
 ###### df.head()
 ```
+The first n rows of the caller object.
 ```
 ###### df.tail()
 ```
+Returns the last n rows.
 ```
 ###### df.columns
 ```
+The column labels of the DataFrame.
 ```
 ###### df.dtypes
 ```
+Return the dtypes in the DataFrame.
 ```
 ###### df.info
+
 ```
+Print a concise summary of a DataFrame.
+
+This method prints information about a DataFrame including the index dtype and columns, non-null values and memory usage.
 ```
 ###### df.describe()
+
 ```
+Generate descriptive statistics.
+
+Descriptive statistics include those that summarize the central tendency, dispersion and shape of a dataset’s distribution, excluding NaN values.
+
+Analyzes both numeric and object series, as well as DataFrame column sets of mixed data types. The output will vary depending on what is provided. Refer to the notes below for more detail.
 ```
 ###### df.dropna()
+
 ```
+Remove missing values.
+'non aplicable'
+
+nous retourne une dataframe qu'on peut stocker.
 ```
 
 ##### Accès aux éléments d'une table de données
 
 ```python
 values = df[['Description', 'Gene Symbol']]
+c'est aussi un dataframe.
 ```
 
 Quel est le type de `values` ?
@@ -263,7 +285,18 @@ df.loc[ df['Gene Symbol'].isin(['fadR', 'arcA'] ) ]
 
 ##### 1. Charger le contenu du fichier `data/TCL_wt1.tsv` dans un notebook en eliminant les lignes porteuses de valeurs numériques aberrantes
 
+```
+df = pandas.read_csv('data/TCL_wt1.tsv', sep ='\t')
+df2 = df.dropna()
+df2.shape ( pour voir si on a bien enlevé les lignes avec des NA )
+
+```
+
 ##### 2. Representez par un histogramme les valeurs de `Log2 Corrected Abundance Ratio`
+
+```
+
+```
 
 ##### 3. A partir de cette échantillon de ratio d'abondance,  estimez la moyenne <img src="https://render.githubusercontent.com/render/math?math=\mu"> et l'ecart-type <img src="https://render.githubusercontent.com/render/math?math=\sigma"> d'une loi normale.
 ```
