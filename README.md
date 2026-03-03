@@ -233,7 +233,7 @@ df.loc[ df['Gene Symbol'].isin(['fadR', 'arcA'] ) ]
 
 #### Appliquons ces outils à l'analyse de données protéomique
 
-##### 1. Charger le contenu du fichier `data/TCL_wt1.tsv` dans un notebook en eliminant les lignes porteuses de valeurs numériques aberrantes
+##### 1. Chargez le contenu du fichier `data/TCL_wt1.tsv` dans un notebook en eliminant les lignes porteuses de valeurs numériques aberrantes
 
 ##### 2. Representez par un histogramme les valeurs de `Log2 Corrected Abundance Ratio`
 
@@ -283,7 +283,7 @@ Sont condidérées comme surabondantes les proteines remplissant ces deux critè
 
 Nous allons implementer une approche ORA (Over Representation Analysis) naive.
 
-##### 1. Retrouver les entrées du fichier TSV des protéines surabondantes
+##### 1. Retrouvez les entrées du fichier TSV des protéines surabondantes
 
 Quelles sont leurs identifiants UNIPROT ?
 ``` 
@@ -292,7 +292,7 @@ Quelles sont leurs identifiants UNIPROT ?
 
 ```
 
-#### 2. Lister les termes GO portés par ces protéines surabondates
+#### 2. Listez les termes GO portés par ces protéines surabondates
 
 Les `entry` du fichier `data/uniprot-proteome_UP000000625.xml` présentent des balises de ce type:
 
@@ -362,7 +362,7 @@ Completer le tableau ci-dessous avec les quantités vous semblant adéquates pou
 | n | nombre d'observations| |
 | N | nombre d'elements observables| |
 
-#### 4. Calcul de l'enrichissement en fonction biologiques
+#### 4. Calcul de l'enrichissement en fonctions biologiques
 
 A l'aide du contenu de `data/EColiK12_GOcounts.json` parametrez la loi hypergeometrique et calculez la pvalue
 de chaque terme GO portés par les protéines surabondantes. Vous reporterez ces données dans le tableau ci-dessous
