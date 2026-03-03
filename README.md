@@ -200,8 +200,8 @@ Le type des valeurs d'une colonne peut être spécifiée:
 
 ```python
 pandas.read_csv('data/TCL_wt1.tsv', sep="\t",  dtype = {'Accession': str, 'Description': str, 'Gene Symbol': str, 
-                                                 'Corrected Abundance ratio (1.53)': np.float,  'Log2 Corrected Abundance Ratio': np.float, 
-                                                 'Abundance Ratio Adj. P-Value: (127. T3 Tc WT) / (126. T0 WT)': np.float, '-LOG10 Adj.P-val': np.float})
+                                                 'Corrected Abundance ratio (1.53)': float,  'Log2 Corrected Abundance Ratio': float, 
+                                                 'Abundance Ratio Adj. P-Value: (127. T3 Tc WT) / (126. T0 WT)': float, '-LOG10 Adj.P-val': float})
 ```
 
 * modifiée à la volée
