@@ -14,54 +14,15 @@ Vous forkerez le présent "repository" pour vous permettre de sauvegarder votre 
 Vous le clonerez ensuite dans votre espace de travail.
 Vous éditerez ce fichier `README.md` pour répondre aux questions dans les encarts prévus à cet effet et inserer les figures que vous aurez générées. Ce "repository" vous appartenant, vous pouvez créer tous les repertoires et fichiers necessaires à la conduite du TP.
 
-### Ressources
-
-Seul le langage Python (v3.X) est requis pour ce travail.
-Il vous est conseillé d'installer un environnement virtuel python pour installer les libraries requises independamment de votre systèmes d'exploitation.
-
-* Le systême de gestion de paquets [Conda](https://docs.conda.io/en/latest/) est très pratique et disponible pour la plupat des systèmes d'exploitation. Une version légère suffisante pour nos besoin est téléchargeable [ici](https://docs.conda.io/en/latest/miniconda.html)
-* Si vous disposez d'un interpreteur python 3.X installé sur votre systême [virtualenv](https://docs.python.org/3/library/venv.html) est désormais "built-in" (cf. Procédure virtualenv).
-
-#### Procédure conda
-
-Depuis le repertoire de votre repository Git, installez le package scipy et lancez jupyter.
+### Installation
+La procédure d'installation préférentielle requiert l'utilitaire [uv](https://docs.astral.sh/uv/getting-started/installation/). Si vous ne pouvez pas l'installer, veuillez solliciter votre encadrant.
 
 ```sh
-$PATH_TO_CONDA_DIR/bin/conda install -c conda-forge scipy notebook matplotlib
-$PATH_TO_CONDA_DIR/bin/jupyter notebook
+git clone https://github.com/<MON_LOGIN_GITHUB>/tp-proteomics.git
+cd tp-proteomics
+uv sync
+uv run jupyter notebook
 ```
-#### Procédure Master BIOINFO LYON1
-Votre compte du master vous donne accès à une instance **JupyterHub** sur pédago service: `http://pedago-service.univ-lyon1.fr:8000`
-#### Procédure virtualenv
-
-Créer l'environnement virtuel.
-
-```python -m venv MADP_TP```
-
-Activer l'environnement virtuel et installer les packages.
-
-```
-source MADP_TP1/bin/activate
-pip install --user ipykernel scipy notebook matplotlib
-```
-#### Procédure VM IFB
-
-Une "appliance" IFB a été préparée avec les dépendances Python requises.
-Elle est accessible [ici](https://biosphere.france-bioinformatique.fr/catalogue/appliance/160/).
-Jupyter vous permettra d'ouvrir des terminaux SHELL et des notebook Python.
-Le repertoire racine de Jupyter est `/mnt/mydatalocal/`
-
-
-#### Intégration des environnements au notebook
-
-Il peut être pratique d'ajouter votre environnement à Jupyter. Cela se réalise depuis l'environnement (conda ou venv) activé.
-
-```
-python -m ipykernel install --user --name=MADP_TP
-```
-
-
-Jupyter est une environnement de type notebook permettant l'exécution de code python dans des cellules avec une persitance des variables entre chaque évaluation de cellule. Jupyter fournit nativement le support de la librarie graphique matplotlib.
 
 ### Test de l'installation
 
@@ -526,4 +487,3 @@ Les positions des noeuds sont paramétrables au travers de l'objet [layout](http
 * Faire du diamètre des noeuds une fonction du nombre de partenaires protéiques.
 * N'afficher que les noeuds des protéines mesurées dans l'experience
 * Utiliser une échelle de couleur continue fonction de l'abondance pour colorier les noeuds
-
