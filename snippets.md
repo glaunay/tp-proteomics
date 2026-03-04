@@ -75,3 +75,7 @@ def compute_pvalue(GO_term:dict, background, ttl_abdnt :int, N = 1800):
     return p_value
     
 ```
+
+```python
+compute_pvalue(GO_dic['GO:0000062'], background, 23, 1800)
+```
