@@ -72,7 +72,7 @@ def compute_pvalue(GO_term:dict, background, ttl_abdnt :int, N = 1800):
     p_value = 0 # pvalue = P(X>=k_obs)
     for k in range(k_obs, ttl_abdnt + 1):
         p_value += rv.pmf(k)
-    return p_value
+    return p_value, GO_id, GO_name
     
 ```
 
