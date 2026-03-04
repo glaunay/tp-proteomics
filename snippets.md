@@ -78,4 +78,11 @@ def compute_pvalue(GO_term:dict, background, ttl_abdnt :int, N = 1800):
 
 ```python
 compute_pvalue(GO_dic['GO:0000062'], background, 23, 1800)
+# Applied to all GO go_terms
+all_scores = []
+for GO_ID in GO_dic:
+    all_scores.append( 
+        compute_pvalue(GO_dic[GO_ID], background, 23, 1800)
+    )
+sorted(all_scores, key = lambda t:t[0])
 ```
